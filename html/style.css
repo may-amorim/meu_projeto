@@ -1,0 +1,162 @@
+/*
+
+o gap é para espaçar o iconw do texto
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_login {
+    width: 650px;
+
+    background: #fff;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    border: 1px solid #8b6c6c;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* LOGO */
+
+#logo {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+#logo img {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+}
+
+/* TÍTULOS */
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 10px;
+    font-family: 'Alfa Slab One', serif;
+}
+
+#titulo {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* MENU DOS ALUNOS */
+
+.menu_aluno {
+
+    background: #d9d9d9;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 200px;
+    margin-top: 20px;
+    position: fixed;
+
+}
+
+
+
+.menu_aluno button {
+
+    padding: 10px;
+    background: white;
+    border: none;
+    text-align: left;
+
+}
+
+/* INPUTS */
+
+.input {
+    margin-bottom: 20px;
+}
+
+.input p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.input input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #e9e9e9;
+    outline: none;
+    font-size: 14px;
+}
+
+/* BOTÃO LOGIN */
+
+.botao_login {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #151941;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.botao_login:hover {
+    background: #1d2358;
+}
+
+/*css da lupa/barra de pesquisa*/
+.lista_pesquisa {
+
+    margin-left: 250px;
+    margin-top: 110px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around; /*separa os dois , criando uma especie de espaço ao redor. dps explico*/
+    align-items: center;
+
+}
+
+#lista {
+
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Alfa Slab One', serif;
+    margin: 0;
+
+}
+/*resolver qm fez input, select ai. eu ja havia deixado um css pronto nesse arquivo*/
+
