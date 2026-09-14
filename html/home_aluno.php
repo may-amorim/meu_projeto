@@ -173,7 +173,7 @@ VerificarLogin();
     <div class="menu_aluno">
 
         <a href="home_aluno.php"><img src="/imagens/casa.png" alt="icon de uma casa"> Meu Perfil </a>
-        <a href="pagamento_aluno.php"><img src="/imagens/carteira.png" alt=" icon carteira"> Pagamento</a>
+        <a href="pagamento.html"><img src="/imagens/carteira.png" alt=" icon carteira"> Pagamento</a>
         <a href="rota.php"><img src="/imagens/rota_mapa.png" alt=" icon mapa"> Minhas Rotas</a>
        
 
