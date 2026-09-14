@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagamento</title>
+    <link rel="stylesheet" href="pagamento.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+        #cabecalho {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            z-index: 1000;
+            border-bottom: 1px solid gray;
+            background-color: white;
+        }
+
+        #logo {
+            border-radius: 100%;
+            width: 69px;
+            height: 69px;
+            display: flex;
+
+        }
+
+        #textos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #t_escolar {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #p_motorista {
+            margin: 0;
+            color: gray;
+        }
+
+        #logout {
+            margin-left: auto;
+            margin-right: 40px;
+        }
+
+        #sair {
+
+            width: 22px;
+            height: 22px;
+
+        }
+
+
+
+
+
+.main{
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+    background-color: white;
+    gap: 100px;
+
+
+}
+
+.formulario{
+    background: #d9d9d9;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 200px;
+            margin: 20px 20px;
+            box-shadow: 0 2px 10px rgb(0, 0, 0, 0.9);
+}
+
+.formulario a{
+            padding: 10px;
+            background: white;
+            border: none;
+            text-align: left;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;;
+
+        }
+
+         .formulario img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .formulario a:hover {
+            background-color: darkgrey;
+            text-decoration: none;
+
+        }
+
+
+
+
+.h2{
+    color: #a1a0a0;
+}
+.pedido{
+    margin: 10px;
+}
+
+.pagamento{
+    flex: 1;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.divida{
+    background-color: #d7d7d7;
+    border-radius: 10px;
+    height: 18vh;
+    width: 120vh;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.status{
+    margin-top: 10px;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+#dinheiro{
+    font-weight: bold;
+    font-size: 32px;
+
+}
+#pendente{
+    border-radius: 5px;
+    background-color: #FFF2BF;
+    color: #802501;
+    font-weight: bold;
+    font-size: 32px;
+
+}
+.dentro{
+    width: 98%;
+    margin: 8px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.conta{
+    display: flex;
+    background-color: white;
+    gap: 10px
+
+}
+.controle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pix{
+    display: flex;
+    border-radius: 10px;
+    height: 35vh;
+    background-color:#d7d7d7 ;
+    width: 59.3vh;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.5);
+    flex-direction: column;
+    background-color: #d7d7d7;
+
+}
+
+button{
+    margin-right: 2px;
+    padding: 5px;
+      border: none;
+      border-radius: 8px;
+      background: #00a859;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 2px;
+}
+button:hover {
+      background: #008f4c;
+    }
+
+.pix-chave{
+
+     background: white;
+     padding: 5px 100px 5px 100px;
+      border-radius: 5px;
+      margin: 10px 0;
+      word-break: break-all;
+}
+
+#pix{
+    text-align: center;
+}
+.cont-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#email{
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    padding-left: 150px;
+    padding-right: 150px;
+    text-decoration: none;
+
+}
+#email:hover {
+      background: blue;
+      color: #FFF2BF;
+    }
+.cont-email{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#pix-qr{
+    margin: 0 5px;
+    font-size: 20px;
+
+}
+
+.qr{
+    border-radius: 10px;
+    height: 35vh;
+    background-color:#d7d7d7 ;
+    width: 59.3vh;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+
+.d-bancarios{
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+#aviso{
+    margin: 0 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+
+
+}
+#aviso2{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+#aviso3{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color:#FFF2BF ;
+    padding: 5px;
+    color: red;
+}
+
+
+
+
+    </style>
+</head>
+
+      <body>
+
+
+    <div id="cabecalho">
+
+        <img id="logo" src="logo.png" alt="logo da empresa">
+
+        <div id="textos">
+            <p id="t_escolar">Transporte Escolar</p>
+            <p id="p_motorista">Painel do Aluno</p>
+        </div>
+
+        <div id="logout">
+
+            <a href="logout.php"><img src="imagens/sair.png" alt="sair" id="sair"></a>
+            <a href="logout.php">sair</a>
+
+        </div>
+
+    </div>
+      
+    </header>
+
+    <main class="main">
+    <div class="formulario">
+        <a><img  src="imagens/casa.png" alt="icon de uma casa" > Meu Perfil </a>
+        <a><img src="imagens/carteira.png"  alt=" icon carteira"> Pagamento</a>
+        <a> <img  src="imagens/rota_mapa.png" alt=" icon mapa"> Minhas Rotas</a>
+    
+</div>
+    
+     <div class="pagamento">
+        <h1>Pagamento</h1>
+        <h3 class="h2">Realize o pagamento da mensalidade </h3><!-- colocar o mês devedor-->
+        <div class="divida">
+            <p class="status">Status de pagamento:</p>
+
+            <div class="dentro">
+                <p id="dinheiro">R$400</p>
+                <div id="pendente">Pendente</div>
+            </div>
+        </div>
+        <div class="conta">
+        <div class="pix">
+            <p id="pix-qr">pix</p>
+            <div class="cont-img">
+            <img 
+                        src="imagens/qr_code.jpg" 
+                        alt="QR Code do PIX"
+                        width="120"
+                        height="120"
+
+                    >
+            </div>
+                    <div class="controle">
+                    <div class="pix-chave" id="pix">DSM$$$08dsm</div>
+            <button onclick="copiarPix()" id="botao">
+      📋Copiar
+    </button>
+    </div>
+    <div class="cont-email">
+            <a href="mailto:goncalvesverderossid@gmail.com" id="email">Enviar e-mail</a>
+            </div>
+        </div>
+        <div class="qr">
+            <div class="d-bancarios"><h1>Trasferencia Bancaria</h1></div>
+            <div class="d-bancarios"><h2>Banco:</h2></div>
+            <div class="d-bancarios"><h2>Agencia:</h2></div>
+            <div class="d-bancarios"><h2>Conta Corrente:</h2></div>
+            <div class="d-bancarios"><h2>Titular:</h2></div>
+        </div>
+    </div>
+        <div class="divida">
+            <div id="aviso"><p>Pagamento em Dinheiro</p></div>
+            <div id="aviso2"><p>Você também pode pagar em dinheiro diretamente ao motorista no dia do transporte. O valor da mensalidade é de R$ 400,00.</p>
+            <div id="aviso3"><p>Atenção: Sempre peça o recibo de pagamento ao motorista como comprovante.</p></div>
+            </div>
+
+
+        </div>
+    </div>
+    
+
+    </main>
+
+    <script>
+    function copiarPix() {
+      const pix = document.getElementById("pix").innerText;
+      const botao = document.getElementById("botao");
+
+      navigator.clipboard.writeText(pix)
+        .then(() => {
+          botao.innerText = "✅copiado!";
+
+          setTimeout(() => {
+            botao.innerText = "📋Copiar";
+          }, 2000);
+        })
+        .catch(() => {
+          alert("Não foi possível copiar o Pix.");
+        });
+    }
+  </script>
+</body>
+</html>
