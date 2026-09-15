@@ -1,0 +1,669 @@
+```html
+to dato da<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagamento Realizado</title>
+
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #222;
+        }
+
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        #cabecalho {
+
+            height: 85px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            width: 100%;
+
+            padding: 8px 25px;
+
+            background-color: white;
+
+            border-bottom: 1px solid #ddd;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        #logo {
+
+            width: 65px;
+
+            height: 65px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+        }
+
+        #textos {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        #t_escolar {
+
+            font-size: 20px;
+
+            font-weight: 700;
+        }
+
+        #p_motorista {
+
+            margin-top: 3px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SAIR
+        ========================= */
+
+        #logout {
+
+            margin-left: auto;
+
+            margin-right: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+        #sair {
+
+            width: 22px;
+
+            height: 22px;
+        }
+
+        #casa {
+
+            text-decoration: none;
+
+            color: #333;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+        #casa:hover {
+
+            color: #d62828;
+        }
+
+
+        /* =========================
+           ÁREA PRINCIPAL
+        ========================= */
+
+        .main {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 25px;
+
+            padding: 25px;
+        }
+
+
+        /* =========================
+           MENU LATERAL
+        ========================= */
+
+        .formulario {
+
+            width: 190px;
+
+            min-width: 190px;
+
+            background-color: #e4e6e8;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .formulario a {
+
+            padding: 12px 10px;
+
+            background-color: white;
+
+            border-radius: 8px;
+
+            color: #222;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .formulario a:hover {
+
+            background-color: #f0f0f0;
+
+            transform: translateX(3px);
+        }
+
+        .formulario img {
+
+            width: 22px;
+
+            height: 22px;
+        }
+
+
+        /* =========================
+           ÁREA DE PAGAMENTO
+        ========================= */
+
+        .pagamento {
+
+            flex: 1;
+
+            max-width: 760px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .pagamento h1 {
+
+            font-size: 28px;
+        }
+
+        .h2 {
+
+            color: #777;
+
+            font-size: 15px;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .cont {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            width: 100%;
+        }
+
+
+        /* =========================
+           CARD DA MENSALIDADE
+        ========================= */
+
+        .mensalidade {
+
+            width: 100%;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+
+            border: 1px solid #eee;
+        }
+
+        #status {
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: #555;
+
+            margin-bottom: 10px;
+        }
+
+        #bloco {
+
+            width: 100%;
+
+            background-color: #f7f8fa;
+
+            border-radius: 8px;
+
+            padding: 15px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+        }
+
+        #valor {
+
+            font-size: 14px;
+
+            color: #777;
+
+            font-weight: 500;
+        }
+
+        #money {
+
+            font-size: 30px;
+
+            font-weight: 700;
+
+            color: #222;
+        }
+
+        #ultimo-dia {
+
+            margin-top: 10px;
+
+            font-size: 13px;
+
+            color: #777;
+
+            font-style: italic;
+        }
+
+
+        /* =========================
+           PAGAMENTO CONFIRMADO
+        ========================= */
+
+        .confrimado {
+
+            width: 100%;
+
+            min-height: 270px;
+
+            background-color: #f0faf2;
+
+            border: 1px solid #b9dfc0;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        .cont-img {
+
+            width: 85px;
+
+            height: 85px;
+
+            border-radius: 50%;
+
+            background-color: #d9f2dd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 12px;
+        }
+
+        .cont-img img {
+
+            width: 65px;
+
+            height: 65px;
+
+            object-fit: contain;
+        }
+
+        #texto1 {
+
+            font-size: 27px;
+
+            font-weight: 700;
+
+            color: #1b6b2a;
+
+            text-align: center;
+
+            margin-bottom: 6px;
+        }
+
+        #texto2 {
+
+            font-size: 15px;
+
+            font-weight: 500;
+
+            color: #52705a;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .main {
+
+                padding: 15px;
+
+                gap: 15px;
+            }
+
+            .formulario {
+
+                width: 170px;
+
+                min-width: 170px;
+            }
+
+            .pagamento {
+
+                max-width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
+
+    <div id="cabecalho">
+
+
+        <img
+            id="logo"
+            src="logo.png"
+            alt="Logo da empresa"
+        >
+
+
+        <div id="textos">
+
+            <p id="t_escolar">
+                Transporte Escolar
+            </p>
+
+            <p id="p_motorista">
+                Painel do Aluno
+            </p>
+
+        </div>
+
+
+        <!-- SAIR -->
+
+        <div id="logout">
+
+            <a href="logout.php">
+
+                <img
+                    src="imagens/sair.png"
+                    alt="Sair"
+                    id="sair"
+                >
+
+            </a>
+
+
+            <a
+                href="logout.php"
+                id="casa"
+            >
+                Sair
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             MENU
+        ========================= -->
+
+        <div class="formulario">
+
+
+            <a href="home_aluno.php">
+
+                <img
+                    src="imagens/casa.png"
+                    alt="Ícone de uma casa"
+                >
+
+                Meu Perfil
+
+            </a>
+
+
+            <a href="#">
+
+                <img
+                    src="imagens/carteira.png"
+                    alt="Ícone de carteira"
+                >
+
+                Pagamento
+
+            </a>
+
+
+            <a href="#">
+
+                <img
+                    src="imagens/rota_mapa.png"
+                    alt="Ícone de mapa"
+                >
+
+                Minhas Rotas
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             PAGAMENTO
+        ========================= -->
+
+        <div class="pagamento">
+
+
+            <h1>
+                Pagamento
+            </h1>
+
+
+            <h3 class="h2">
+                Realize o pagamento da mensalidade
+            </h3>
+
+
+
+            <div class="cont">
+
+
+                <!-- =========================
+                     MENSALIDADE
+                ========================= -->
+
+                <div class="mensalidade">
+
+
+                    <div id="status">
+                        Status de Pagamento:
+                    </div>
+
+
+                    <div id="bloco">
+
+
+                        <div id="valor">
+                            Valor da mensalidade
+                        </div>
+
+
+                        <div id="money">
+                            R$ 400,00
+                        </div>
+
+
+                    </div>
+
+
+                    <div id="ultimo-dia">
+                        Último dia da mensalidade
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     PAGAMENTO CONFIRMADO
+                ========================= -->
+
+                <div class="confrimado">
+
+
+                    <div class="cont-img">
+
+                        <img
+                            src="imagens/verificar.png"
+                            alt="Pagamento confirmado"
+                        >
+
+                    </div>
+
+
+                    <div id="texto1">
+                        Pagamento Realizado
+                    </div>
+
+
+                    <div id="texto2">
+                        Seu pagamento da mensalidade de: Abril
+                    </div>
+
+                    <!--
+                        Aqui você pode colocar o PHP
+                        para mostrar o mês automaticamente.
+                    -->
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
+```

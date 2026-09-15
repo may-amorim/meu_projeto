@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagamento</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #222;
+        }
+
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
+        #cabecalho {
+            height: 85px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            padding: 8px 25px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        #logo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        #textos {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #t_escolar {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        #p_motorista {
+            margin-top: 3px;
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           BOTÃO SAIR
+        ========================= */
+
+        #logout {
+            margin-left: auto;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        #sair {
+            width: 22px;
+            height: 22px;
+        }
+
+        #casa {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        #casa:hover {
+            color: #d62828;
+        }
+
+
+        /* =========================
+           ÁREA PRINCIPAL
+        ========================= */
+
+        .main {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 25px;
+        }
+
+
+        /* =========================
+           MENU LATERAL
+        ========================= */
+
+        .formulario {
+            width: 190px;
+            min-width: 190px;
+
+            background-color: #e4e6e8;
+
+            padding: 10px;
+
+            border-radius: 12px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 8px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .formulario a {
+            padding: 12px 10px;
+
+            background-color: white;
+
+            border-radius: 8px;
+
+            color: #222;
+
+            text-decoration: none;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+        .formulario a:hover {
+            background-color: #f0f0f0;
+            transform: translateX(3px);
+        }
+
+        .formulario img {
+            width: 22px;
+            height: 22px;
+        }
+
+
+        /* =========================
+           ÁREA DE PAGAMENTO
+        ========================= */
+
+        .pagamento {
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+            max-width: 760px;
+        }
+
+        .pagamento h1 {
+            font-size: 28px;
+        }
+
+        .h2 {
+            color: #777;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           CARD DA DÍVIDA
+        ========================= */
+
+        .divida {
+            width: 100%;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+
+            border: 1px solid #eee;
+        }
+
+        .status {
+            font-size: 15px;
+
+            font-weight: 600;
+
+            color: #555;
+
+            margin-bottom: 8px;
+        }
+
+        .dentro {
+            width: 100%;
+
+            padding: 15px;
+
+            background-color: #f7f8fa;
+
+            border-radius: 8px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        #dinheiro {
+            font-weight: 700;
+
+            font-size: 28px;
+
+            color: #222;
+        }
+
+        #pendente {
+            border-radius: 7px;
+
+            background-color: #fff0c2;
+
+            color: #8a4b00;
+
+            font-weight: 700;
+
+            font-size: 15px;
+
+            padding: 8px 14px;
+        }
+
+
+        /* =========================
+           PIX E TRANSFERÊNCIA
+        ========================= */
+
+        .conta {
+            display: flex;
+
+            gap: 15px;
+
+            width: 100%;
+        }
+
+        .pix,
+        .qr {
+
+            flex: 1;
+
+            min-height: 270px;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+
+            border: 1px solid #eee;
+        }
+
+
+        /* =========================
+           PIX
+        ========================= */
+
+        .pix {
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        #pix-qr {
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .cont-img {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 10px;
+        }
+
+        .cont-img img {
+
+            width: 110px;
+
+            height: 110px;
+
+            border-radius: 6px;
+        }
+
+        .controle {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .pix-chave {
+
+            flex: 1;
+
+            background-color: #f3f4f6;
+
+            padding: 8px;
+
+            border-radius: 6px;
+
+            font-size: 12px;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+        button {
+
+            padding: 8px 10px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background-color: #00a859;
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+
+            background-color: #008f4c;
+
+            transform: scale(1.03);
+        }
+
+
+        /* =========================
+           EMAIL
+        ========================= */
+
+        .cont-email {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 12px;
+        }
+
+        #email {
+
+            background-color: #eeeeee;
+
+            color: #333;
+
+            padding: 8px 25px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        #email:hover {
+
+            background-color: #ddd;
+        }
+
+
+        /* =========================
+           TRANSFERÊNCIA BANCÁRIA
+        ========================= */
+
+        .qr {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .qr h1 {
+
+            font-size: 19px;
+
+            margin-bottom: 5px;
+        }
+
+        .qr h2 {
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: #555;
+        }
+
+        .d-bancarios {
+
+            padding: 4px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+
+        /* =========================
+           PAGAMENTO EM DINHEIRO
+        ========================= */
+
+        #aviso {
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        #aviso2 {
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            color: #555;
+        }
+
+        #aviso3 {
+
+            margin-top: 12px;
+
+            border-radius: 7px;
+
+            background-color: #fff1c7;
+
+            padding: 9px;
+
+            color: #a33a00;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .main {
+
+                padding: 15px;
+
+                gap: 15px;
+            }
+
+            .formulario {
+
+                width: 170px;
+
+                min-width: 170px;
+            }
+
+            .conta {
+
+                flex-direction: column;
+            }
+
+            .pagamento {
+
+                max-width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- CABEÇALHO -->
+
+    <div id="cabecalho">
+
+        <img
+            id="logo"
+            src="logo.png"
+            alt="Logo da empresa"
+        >
+
+
+        <div id="textos">
+
+            <p id="t_escolar">
+                Transporte Escolar
+            </p>
+
+            <p id="p_motorista">
+                Painel do Aluno
+            </p>
+
+        </div>
+
+
+        <!-- BOTÃO SAIR -->
+
+        <div id="logout">
+
+            <a href="logout.php">
+
+                <img
+                    src="imagens/sair.png"
+                    alt="Sair"
+                    id="sair"
+                >
+
+            </a>
+
+
+            <a
+                href="logout.php"
+                id="casa"
+            >
+                Sair
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="main">
+
+
+        <!-- MENU LATERAL -->
+
+        <div class="formulario">
+
+
+            <a href="home_aluno.php">
+
+                <img
+                    src="imagens/casa.png"
+                    alt="Ícone de uma casa"
+                >
+
+                Meu Perfil
+
+            </a>
+
+
+            <a href="#">
+
+                <img
+                    src="imagens/carteira.png"
+                    alt="Ícone de carteira"
+                >
+
+                Pagamento
+
+            </a>
+
+
+            <a href="#">
+
+                <img
+                    src="imagens/rota_mapa.png"
+                    alt="Ícone de mapa"
+                >
+
+                Minhas Rotas
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- ÁREA DE PAGAMENTO -->
+
+        <div class="pagamento">
+
+
+            <h1>
+                Pagamento
+            </h1>
+
+
+            <h3 class="h2">
+                Realize o pagamento da mensalidade
+            </h3>
+
+
+
+            <!-- STATUS DO PAGAMENTO -->
+
+            <div class="divida">
+
+                <p class="status">
+                    Status de pagamento:
+                </p>
+
+
+                <div class="dentro">
+
+                    <p id="dinheiro">
+                        R$ 400,00
+                    </p>
+
+
+                    <div id="pendente">
+                        Pendente
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PIX E TRANSFERÊNCIA -->
+
+            <div class="conta">
+
+
+                <!-- PIX -->
+
+                <div class="pix">
+
+
+                    <p id="pix-qr">
+                        PIX
+                    </p>
+
+
+                    <div class="cont-img">
+
+                        <img
+                            src="imagens/qr_code.jpg"
+                            alt="QR Code do PIX"
+                        >
+
+                    </div>
+
+
+                    <div class="controle">
+
+                        <div
+                            class="pix-chave"
+                            id="pix"
+                        >
+
+                            DSM$$$08dsm
+
+                        </div>
+
+
+                        <button
+                            onclick="copiarPix()"
+                            id="botao"
+                        >
+
+                            📋 Copiar
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="cont-email">
+
+                        <a
+                            href="mailto:goncalvesverderossid@gmail.com"
+                            id="email"
+                        >
+
+                            Enviar e-mail
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- TRANSFERÊNCIA BANCÁRIA -->
+
+                <div class="qr">
+
+
+                    <div class="d-bancarios">
+
+                        <h1>
+                            Transferência Bancária
+                        </h1>
+
+                    </div>
+
+
+                    <div class="d-bancarios">
+
+                        <h2>
+                            Banco:
+                        </h2>
+
+                    </div>
+
+
+                    <div class="d-bancarios">
+
+                        <h2>
+                            Agência:
+                        </h2>
+
+                    </div>
+
+
+                    <div class="d-bancarios">
+
+                        <h2>
+                            Conta Corrente:
+                        </h2>
+
+                    </div>
+
+
+                    <div class="d-bancarios">
+
+                        <h2>
+                            Titular:
+                        </h2>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PAGAMENTO EM DINHEIRO -->
+
+            <div class="divida">
+
+
+                <div id="aviso">
+
+                    <p>
+                        💵 Pagamento em Dinheiro
+                    </p>
+
+                </div>
+
+
+                <div id="aviso2">
+
+                    <p>
+                        Você também pode pagar em dinheiro diretamente ao motorista
+                        no dia do transporte. O valor da mensalidade é de
+                        R$ 400,00.
+                    </p>
+
+
+                    <div id="aviso3">
+
+                        <p>
+                            ⚠ Atenção: Sempre peça o recibo de pagamento ao
+                            motorista como comprovante.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function copiarPix() {
+
+            const pix =
+                document.getElementById("pix").innerText;
+
+            const botao =
+                document.getElementById("botao");
+
+
+            navigator.clipboard.writeText(pix)
+
+                .then(() => {
+
+                    botao.innerText =
+                        "✅ Copiado!";
+
+
+                    setTimeout(() => {
+
+                        botao.innerText =
+                            "📋 Copiar";
+
+                    }, 2000);
+
+                })
+
+
+                .catch(() => {
+
+                    alert(
+                        "Não foi possível copiar o PIX."
+                    );
+
+                });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

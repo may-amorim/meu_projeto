@@ -77,6 +77,7 @@
 }
 
 .formulario{
+    text-decoration: none;
     background: #d9d9d9;
             padding: 10px;
             border-radius: 10px;
@@ -283,7 +284,7 @@ button:hover {
     margin-left: 20px;
 }
 #aviso3{
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 15px;
     font-weight: bold;
     margin-right: 20px;
@@ -291,6 +292,15 @@ button:hover {
     background-color:#FFF2BF ;
     padding: 5px;
     color: red;
+}
+#casa{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+#casa:hover{
+    color: red;
+    text-decoration: none;
 }
 
 
@@ -314,7 +324,7 @@ button:hover {
         <div id="logout">
 
             <a href="logout.php"><img src="imagens/sair.png" alt="sair" id="sair"></a>
-            <a href="logout.php">sair</a>
+            <a href="logout.php" id="casa">sair</a>
 
         </div>
 
@@ -323,8 +333,8 @@ button:hover {
     </header>
 
     <main class="main">
-    <div class="formulario">flex-direction
-        <a><img  src="imagens/casa.png" alt="icon de uma casa" > Meu Perfil </a>
+    <div class="formulario">
+        <a href="home_aluno.php" style="text-decoration: none;color: black;"><img  src="imagens/casa.png" alt="icon de uma casa" > Meu Perfil </a>
         <a><img src="imagens/carteira.png"  alt=" icon carteira"> Pagamento</a>
         <a> <img  src="imagens/rota_mapa.png" alt=" icon mapa"> Minhas Rotas</a>
     

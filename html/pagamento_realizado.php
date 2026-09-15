@@ -130,7 +130,7 @@
 
         .mensalidade{
             background-color: #d7d7d7;
-            width: 82%;
+            width: 90%;
             height: 32vh;
             border-radius: 5px;
             display: flex;
@@ -147,7 +147,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-             width: 82%;
+             width: 90%;
             height: 32vh;
             background-color: rgb(167, 218, 172);
             border-radius: 5px;
@@ -170,18 +170,18 @@
 
         }
         #money{
-            font-size: 25px;
+            font-size: 50px;
             font-weight: bold;
             margin-left: 30px;
         }
         #valor{
-            font-size: 25px;
+            font-size: 30px;
             margin-left: 30px;
             font-style:italic
 
         }
         #texto1{
-            font-size: 35px;
+            font-size: 40px;
             font-weight: bold;
             margin-top: 10px;
             color: #1B4C02;
@@ -199,6 +199,15 @@
     margin-left: 15px;
     margin-top: 10px;
     font-style: italic;
+}
+#casa{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+#casa:hover{
+    color: red;
+    text-decoration: none;
 }
 </style>
 </head>
@@ -218,7 +227,7 @@
         <div id="logout">
 
             <a href="logout.php"><img src="imagens/sair.png" alt="sair" id="sair"></a>
-            <a href="logout.php">sair</a>
+            <a href="logout.php" id="casa">sair</a>
 
         </div>
 
@@ -228,14 +237,14 @@
 
     <main class="main">
     <div class="formulario">
-        <a><img  src="imagens/casa.png" alt="icon de uma casa" > Meu Perfil </a>
+        <a  href="home_aluno.php" style="text-decoration: none;color: black;"><img  src="imagens/casa.png" alt="icon de uma casa" > Meu Perfil </a>
         <a><img src="imagens/carteira.png"  alt=" icon carteira"> Pagamento</a>
         <a> <img  src="imagens/rota_mapa.png" alt=" icon mapa"> Minhas Rotas</a>
     
 </div>
 <div class="pagamento">
         <h1>Pagamento</h1>
-        <h3 class="h2">Realize o pagamento da mensalidade </h3><!-- colocar o mês devedor-->
+        <h3 class="h2">Realize o pagamento da mensalidade: </h3><!-- colocar o mês devedor-->
         <div class="cont">
             <div class="mensalidade">
                             <div id="status">Status de Pagamento:</div>
