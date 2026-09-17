@@ -561,7 +561,6 @@ VerificarLogin();
             <p id="t_escolar">Transporte Escolar</p>
             <p id="p_motorista">Painel do motorista</p>
         </div>
-DSM$$$08dsm
         <div id="logout">
 
             <a href="logout.php"><img src="imagens/sair.png" alt="sair" id="sair"></a>
